@@ -1,1 +1,1 @@
-from .logger import poplar
+from poplar_logging.logger import poplar

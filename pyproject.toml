@@ -1,6 +1,6 @@
 [project]
-name = "poplar"
-version = "1.2.1"
+name = "poplar_logging"
+version = "1.2.2"
 authors = [
   { name="Odai Athamneh", email="heyodai@gmail.com" },
 ]
