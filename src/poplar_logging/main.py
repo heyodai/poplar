@@ -2,6 +2,8 @@ import logging
 import os
 from datetime import datetime
 
+__all__ = ['poplar']
+
 class PoplarLogger:
     def __init__(self):
         self.log_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
