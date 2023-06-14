@@ -15,6 +15,6 @@ pip install -U poplar-logging`
 ```python
 import poplar
 
-poplar.log.info("Hello, world!")
+poplar.info("Hello, world!")
 poplar.save()
 ```
