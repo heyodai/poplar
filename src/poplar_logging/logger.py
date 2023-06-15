@@ -18,11 +18,11 @@ class PoplarLogger:
         self.logger.addHandler(stream_handler)
 
         log_file = os.path.join(self.log_directory, f'{datetime.utcnow().strftime("%Y%m%d%H%M%S")}.log')
-        with open(log_file, mode='w') as file:
-            file_handler = logging.FileHandler(filename=log_file)
-            file_handler.setLevel(logging.INFO)
-            file_handler.setFormatter(self.formatter)
-            self.logger.addHandler(file_handler)
+
+        self.file_handler = logging.FileHandler(filename=log_file)  # Store file handler as instance variable
+        self.file_handler.setLevel(logging.INFO)
+        self.file_handler.setFormatter(self.formatter)
+        self.logger.addHandler(self.file_handler)
 
     def info(self, message):
         self.logger.info(message)
@@ -40,8 +40,5 @@ class PoplarLogger:
         self.logger.critical(message)
 
     def save(self):
-        for handler in self.logger.handlers:
-            if isinstance(handler, logging.FileHandler):
-                handler.flush()
-
-poplar = PoplarLogger()
+        self.file_handler.flush()
+        self.file_handler.close()  # Close the file handler after flushing
